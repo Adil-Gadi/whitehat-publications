@@ -1,5 +1,5 @@
-var helicopterIMG, helicopterSprite, packageSprite, packageIMG;
-var packageBody, ground;
+var helicopterIMG, helicopterSprite, packageSprite, packageIMG, bottomBoxSprite, leftBoxSprite, rightBoxSprite;
+var packageBody, ground, bottomBoxBody, leftBoxBody, rightBoxBody;
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -30,17 +30,33 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width / 2, 200, 5, { restitution: 0.85, isStatic: true });
+	packageBody = Bodies.circle(width / 2, 200, 5, { restitution: 0.1, isStatic: true });
 	World.add(world, packageBody);
 
 
 	//Create a Ground
-	ground = Bodies.rectangle(width / 2, 650, width, 10, { isStatic: true });
+	ground = Bodies.rectangle(width / 2, height - 35, width, 10, { isStatic: true });
 	World.add(world, ground);
 
+	bottomBoxBody = Bodies.rectangle(width / 2, height - 50, 200, 20, { "isStatic": true });
+	World.add(world, bottomBoxBody);
+
+	bottomBoxSprite = createSprite(width / 2, height - 50, 200, 20);
+	bottomBoxSprite.shapeColor = "red";
+
+	leftBoxBody = Bodies.rectangle(310, height - 150, 20, 100);
+	World.add(world, leftBoxBody);
+
+	leftBoxSprite = createSprite(310, height - 150, 20, 100);
+	leftBoxSprite.shapeColor = "red";
+
+	rightBoxBody = Bodies.rectangle(490, height - 150, 20, 100);
+	World.add(world, rightBoxBody);
+
+	rightBoxSprite = createSprite(490, height - 150, 20, 100);
+	rightBoxSprite.shapeColor = "red";
 
 	Engine.run(engine);
-
 }
 
 
@@ -49,19 +65,22 @@ function draw() {
 	background(0);
 	packageSprite.x = packageBody.position.x;
 	packageSprite.y = packageBody.position.y;
+
+	leftBoxSprite.x = leftBoxBody.position.x;
+	leftBoxSprite.y = leftBoxBody.position.y;
+
+	rightBoxSprite.x = rightBoxBody.position.x;
+	rightBoxSprite.y = rightBoxBody.position.y;
 	keyPressed();
 	Engine.update(engine);
 	drawSprites();
-
 }
 
 function keyPressed() {
 	if (keyCode === DOWN_ARROW) {
-		console.log(packageSprite.x);
-		console.log(packageSprite.y);
 		Matter.Body.setStatic(packageBody, false);
 	}
+
+	console.log(packageSprite.x);
+	console.log(packageSprite.y);
 }
-
-
-

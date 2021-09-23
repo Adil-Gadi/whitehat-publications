@@ -3,6 +3,7 @@ class Basket {
         this.leftSide = Bodies.rectangle(x, y, 20, 100, { "isStatic": true });
         this.rightSide = Bodies.rectangle(x + 180, y, 20, 100, { "isStatic": true });
         this.bottomSide = Bodies.rectangle(x + 90, y + 60, 200, 20, { "isStatic": true });
+        this.image = loadImage("../images/dustbingreen.png");
 
         World.add(world, this.leftSide);
         World.add(world, this.rightSide);
@@ -22,6 +23,7 @@ class Basket {
         rect(lx, ly, 20, 100);
         rect(rx, ry, 20, 100);
         rect(bx, by, 200, 20);
+        image(this.image, 600, 500, 180, 120)
         pop();
     }
 }

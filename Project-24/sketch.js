@@ -7,37 +7,34 @@ const Body = Matter.Body;
 var paper, ground, basket;
 
 function setup() {
-	createCanvas(800, 700);
+  createCanvas(800, 700);
 
-	engine = Engine.create();
-	world = engine.world;
+  engine = Engine.create();
+  world = engine.world;
 
-	//Create the Bodies Here.
-	paper = new Paper(200,200);
+  //Create the Bodies Here.
+  paper = new Paper(200, 200);
 
-	ground = new Ground(0,700,1600,100);
+  ground = new Ground(0, 700, 1600, 100);
 
-	basket = new Basket(600,550);
+  basket = new Basket(600, 550);
 
-	Engine.run(engine);
+  Engine.run(engine);
 
 }
 
 
 function draw() {
   rectMode(CENTER);
-  background(0);
+  background(245);
 
-  paper.display();
   ground.display();
   basket.display();
+  paper.display();
 
-  if (keyCode === UP_ARROW) Body.applyForce(paper.body,paper.body.position, {"x": 1, "y": -1})
+  if (keyCode === UP_ARROW) Body.applyForce(paper.body, paper.body.position, { "x": 2, "y": 2 })
 
   Engine.update(engine);
   drawSprites();
- 
+
 }
-
-
-

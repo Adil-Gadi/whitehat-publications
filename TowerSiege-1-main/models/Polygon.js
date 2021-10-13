@@ -8,7 +8,7 @@ class Polygon {
         this.body = Bodies.rectangle(x, y, width, height, options);
         this.width = width;
         this.height = height;
-        this.image = loadImage("../polygon.png");
+        this.image = loadImage("polygon.png");
         World.add(world, this.body);
     }
     display() {

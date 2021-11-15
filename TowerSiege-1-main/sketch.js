@@ -7,6 +7,7 @@ var engine, world;
 var ground, polygon, sling;
 var platform1, platform2, platform3;
 var box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12, box13, box14, box15, box16, box17, box18;
+var score = 0;
 
 function preload() {
 
@@ -50,6 +51,7 @@ function setup() {
 function draw() {
     background(230);
     Engine.update(engine);
+    text(`Score: ${score}`, 700,100);
     ground.display();
     platform1.display();
     platform2.display();
@@ -75,6 +77,25 @@ function draw() {
     box16.display();
     box17.display();
     box18.display();
+
+    box1.score();
+    box2.score();
+    box3.score();
+    box4.score();
+    box5.score();
+    box6.score();
+    box7.score();
+    box8.score();
+    box9.score();
+    box10.score();
+    box11.score();
+    box12.score();
+    box13.score();
+    box14.score();
+    box15.score();
+    box16.score();
+    box17.score();
+    box18.score();
 }
 
 function mouseDragged() {

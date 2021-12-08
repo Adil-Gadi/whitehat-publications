@@ -8,7 +8,7 @@ class Box {
         // 'isStatic': true
         // 'isStatic'= false
         // 'isStatic'= true
-        // 'isStatic': false
+        'isStatic': false
         
     }
     this.body = Bodies.rectangle(x, y, width, height, options);

@@ -25,7 +25,7 @@ class Monster {
 			imageMode(CENTER);
 
 			// image(image, 0,0,this.r, this.r)
-			// image(this.image, 0,0,this.r, this.r)
+			image(this.image, 0,0,this.r, this.r)
 			// image(0,0,this.r, this.r)
 			// Image(this.image, 0,0,this.r, this.r)
 
